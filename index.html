@@ -4,35 +4,44 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Broken Page</title>
-		<link rel="stylesheet" href="styles.css">
-		<script src="script.js"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<script src="scripts.js" defer></script>
 	</head>
-	<body>
+	<body id="top">
 		<header>
 			<a href="/" class="logo-wrapper">
-				<picture>
-					<img
-						src="assets/logo.svg"
-						alt="A Totally Real Company"
-						class="logo"
-						loading="eager"
-						width="203"
-						height="64"
-					/>
-				</picture>
+				<img
+					src="assets/logo.svg"
+					alt="A Totally Real Company"
+					class="logo"
+					loading="eager"
+					width="203"
+					height="64"
+				/>
 			</a>
-			<button id="menu-btn" class="menu-btn">Menu</button>
 
-			<nav id="menu" class="navigation" style="display: none;">
+			<nav id="menu" class="navigation" aria-label="Main navigation">
 				<ul class="navigation-list">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</nav>
+
+			<button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open navigation menu">
+				<img 
+					src="assets/bars.svg"
+					alt="bars icon"
+					class="icon-bars"
+					width="30"
+					height="26"
+					id="bars-icon"
+					aria-hidden="true"
+				/>
+			</button>
 		</header>
 
 		<main>
@@ -48,12 +57,21 @@
 					</div>
 
 					<div class="column column-2">
-						<img src="assets/image@2x.jpg">
+						<img
+							src="assets/image.jpg"
+							srcset="assets/image-mobile.jpg 600w, assets/image.jpg 800w, assets/image@2x.jpg 1600w"
+							sizes="(max-width: 950px) 100vw, 50vw"
+							alt="Description of the content image"
+							loading="lazy"
+							width="800"
+							height="600"
+							class="content-image"
+						>
 					</div>
 				</div>
 			</section>
 
-			<section>
+			<section class="form-section">
 				<div class="width-container">
 					<div class="header-wrapper">
 						<p class="section-subtitle">Example Subtitle</p>
@@ -61,20 +79,28 @@
 						<p class="content-container">Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 					</div>
 
-					<form id="contact-form">
-						<label>Name</label>
-						<input type="text" id="name">
-						<label>Email</label>
-						<input type="email" id="email">
-						<button>Submit</button>
+					<form id="contact-form" novalidate>
+						<div class="form-field">
+							<label for="name" class="visually-hidden">Name</label>
+							<input type="text" id="name" name="name" placeholder="Name" required autocomplete="name">
+						</div>
+						<div class="form-field">
+							<label for="email" class="visually-hidden">Email</label>
+							<input type="email" id="email" name="email" placeholder="Email" required autocomplete="email">
+						</div>
+						<button type="submit" class="btn btn-submit">Submit</button>
 					</form>
 				</div>
 			</section>
 		</main>
 
 		<footer>
-			<p>Copyright 2025 - DynamiX</p>
-			<a href="#" id="back-to-top">Back to Top</a>
+			<div class="footer-inner">
+			<a href="#top" id="back-to-top" aria-label="Back to top">
+				<img src="assets/arrow-up.svg" alt="" width="20" height="20" aria-hidden="true" class="arrow-up">
+			</a>
+			<p class="copyright">Copyright 2025 - DynamiX</p>
+			</div>
 		</footer>
 	</body>
 </html>
