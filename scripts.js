@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	menuBtn.addEventListener('click', toggleMenu);
+	document.addEventListener('keydown', function (event) {
+		if (event.key === 'Escape' && menu.classList.contains('visible')) {
+			closeMenu();
+			menuBtn.focus();
+		}
+	});
+
+	menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+			if (menu.classList.contains('visible')) {
+				closeMenu();
+				menuBtn.focus();
+			}
+    });
+	});
 
 	// contact form
 	let form = document.getElementById('contact-form');

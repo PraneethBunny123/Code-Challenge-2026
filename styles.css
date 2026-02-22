@@ -5,8 +5,7 @@
 	--orange-rgb: 247, 146, 51;
 	--white-hex: #fff;
 	--white-rgb: 255, 255, 255;
-	--light-gray-hex: #e6e6e6;
-
+	--form-field-background: #3238480D;
 }
 
 html {
@@ -139,13 +138,14 @@ header {
 .content-container {
 	margin-block: 0;
 	font-size: 1.25em;
+	line-height: 2;
 
 	@media screen and (max-width: 950px) {
 		font-size: 1em;
 	}
 
 	& + .btn-wrapper {
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 	}
 }
 
@@ -247,6 +247,10 @@ section {
 	.content-container {
 		font-size: 1em;
 	}
+
+	& + #contact-form {
+		margin-top: 1.5rem;
+	}
 }
 
 .form-field input {
@@ -254,7 +258,7 @@ section {
     padding: 1em 1.5em;
     border: 1px solid var(--dark-gray-hex);
     border-radius: 3em;
-    background-color: var(--light-gray-hex);
+		background: var(--form-field-background);
     font-size: 1em;
     font-family: inherit;
     color: var(--dark-gray-hex);
