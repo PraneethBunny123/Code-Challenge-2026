@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 	// navigation
-	const menu = document.getElementById('menu');
-	const menuBtn = document.getElementById('menu-btn');
-	const barsIcon = document.getElementById('bars-icon');
+	let menu = document.getElementById('menu');
+	let menuBtn = document.getElementById('menu-btn');
+	let barsIcon = document.getElementById('bars-icon');
 
 	function openMenu() {
 		menu.classList.add('visible');
 		menuBtn.setAttribute('aria-expanded', 'true');
-		menuBtn.setAttribute('aria-label', 'Close navigation menu');
+		menuBtn.setAttribute('aria-label', 'Close menu');
 		barsIcon.src = 'assets/xmark.svg';
 	}
 
 	function closeMenu() {
 		menu.classList.remove('visible');
 		menuBtn.setAttribute('aria-expanded', 'false');
-		menuBtn.setAttribute('aria-label', 'Open navigation menu');
+		menuBtn.setAttribute('aria-label', 'Open menu');
 		barsIcon.src = 'assets/bars.svg';
 	}
 
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	menuBtn.addEventListener('click', toggleMenu);
 
 	// contact form
-	var form = document.getElementById('contact-form');
+	let form = document.getElementById('contact-form');
 	form.addEventListener('submit', function (event) {
 		event.preventDefault();
 
-		var nameInput  = document.getElementById('name');
-		var emailInput = document.getElementById('email');
-		var isValid    = true;
+		let nameInput  = document.getElementById('name');
+		let emailInput = document.getElementById('email');
+		let isValid    = true;
 
 		// Simple required + email format validation
 		if (!nameInput.value.trim()) {
@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// back to top
-	var backToTopBtn = document.getElementById('back-to-top');
+	let backToTopBtn = document.getElementById('back-to-top');
 
 	function handleScroll() {
-		if (window.scrollY > 500) {
+		if (window.scrollY > 100) {
 			backToTopBtn.classList.add('visible');
 		} else {
 			backToTopBtn.classList.remove('visible');
