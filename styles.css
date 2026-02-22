@@ -46,6 +46,7 @@ header {
 	opacity: 0;
 	height: 76px;
 	pointer-events: none;
+	padding: 16px;
 	transition: opacity 300ms ease, transform 300ms ease;
 	
 
@@ -69,7 +70,6 @@ header {
 	&.visible {
 		opacity: 1;
 		pointer-events: auto;
-		padding: 16px;
 
 		@media screen and (max-width: 950px) {
 			transform: translate(0, 0);
@@ -131,8 +131,8 @@ header {
 
 	&:hover,
 	&:focus {
-		background-color: orange;
-		color: white;
+		background-color: var(--orange-hex);
+		color: var(--white-hex);
 	}
 }
 
@@ -254,10 +254,10 @@ section {
     padding: 1em 1.5em;
     border: 1px solid var(--dark-gray-hex);
     border-radius: 3em;
-    background-color: rgb(238, 237, 237);
+    background-color: var(--light-gray-hex);
     font-size: 1em;
     font-family: inherit;
-    color: var(--light-gray-hex);
+    color: var(--dark-gray-hex);
     outline: none;
     box-sizing: border-box;
 
@@ -342,10 +342,19 @@ footer {
 	background: var(--orange-hex);
 	border-radius: 50%;
 
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 300ms ease;
+
 	@media screen and (max-width: 950px) {
 		right: 50%;
 		transform: translateX(50%);
 	}
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .arrow-up {
